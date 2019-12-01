@@ -2,7 +2,6 @@ import platform
 import struct
 import sys
 import os
-from pathlib import Path
 import ctypes as ct
 from .vrepConst import *
 
@@ -19,7 +18,6 @@ try:
     else:
         file_extension = '.so'
     libfullpath = os.path.abspath('dll/remoteApi.dll') #TODO make config for files
-    print(libfullpath)
     libsimx = ct.CDLL(libfullpath)
 except:
     print ('----------------------------------------------------')
