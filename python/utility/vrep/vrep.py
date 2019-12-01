@@ -2,8 +2,9 @@ import platform
 import struct
 import sys
 import os
+from pathlib import Path
 import ctypes as ct
-from vrepConst import *
+from .vrepConst import *
 
 #load library
 libsimx = None
@@ -17,7 +18,8 @@ try:
         file_extension = '.dylib'
     else:
         file_extension = '.so'
-    libfullpath = os.path.join(os.path.dirname(__file__), 'remoteApi' + file_extension)
+    libfullpath = os.path.abspath('dll/remoteApi.dll') #TODO make config for files
+    print(libfullpath)
     libsimx = ct.CDLL(libfullpath)
 except:
     print ('----------------------------------------------------')
